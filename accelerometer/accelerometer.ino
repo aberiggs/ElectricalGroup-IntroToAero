@@ -1,8 +1,10 @@
 #include<Wire.h>
+int LED_RED = 0;
 const int MPU=0x68; 
 int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
 
 void setup(){
+  pinMode(LED_RED, OUTPUT);
   Wire.begin();
   Wire.beginTransmission(MPU);
   Wire.write(0x6B); 
@@ -10,8 +12,12 @@ void setup(){
   Wire.endTransmission(true);
   Serial.begin(9600);
   
+  
+  
 }
 void loop(){
+  int LastX = AcX;
+  digitalWrite(LED_RED, LOW);
   Wire.beginTransmission(MPU);
   Wire.write(0x3B);  
   Wire.endTransmission(false);
@@ -33,5 +39,11 @@ void loop(){
   Serial.print(" | Y = "); Serial.print(GyY);
   Serial.print(" | Z = "); Serial.println(GyZ);
   Serial.println(" ");
+
+  Serial.println(LastX);
+  int Difference = LastX-AcX;
+
+  if(Difference = 1000){
+    }
   delay(333);
 }
