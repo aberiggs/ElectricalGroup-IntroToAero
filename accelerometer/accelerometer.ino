@@ -11,9 +11,13 @@ void setup(){
   Wire.write(0);    
   Wire.endTransmission(true);
   Serial.begin(9600);
+<<<<<<< Updated upstream
   
   
   
+=======
+
+>>>>>>> Stashed changes
 }
 void loop(){
   int LastX = AcX;
