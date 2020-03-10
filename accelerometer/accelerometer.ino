@@ -11,13 +11,6 @@ void setup(){
   Wire.write(0);    
   Wire.endTransmission(true);
   Serial.begin(9600);
-<<<<<<< Updated upstream
-  
-  
-  
-=======
-
->>>>>>> Stashed changes
 }
 void loop(){
   digitalWrite(LED_RED, LOW);
@@ -50,7 +43,7 @@ void loop(){
   Serial.println(LastX);
   int Difference = LastX-AcX;
   
-  if (Difference > 2000) {
+  if (abs(Difference) > 2000) {
     digitalWrite(LED_RED, HIGH);
   }
   
