@@ -32,25 +32,24 @@ void loop(){
   GyY=Wire.read()<<8|Wire.read();  
   GyZ=Wire.read()<<8|Wire.read();  
 
-  /*
+ 
   Serial.print("Accelerometer: ");
   Serial.print("X = "); Serial.print(AcX);
   Serial.print(" | Y = "); Serial.print(AcY);
   Serial.print(" | Z = "); Serial.println(AcZ); 
   
-  Serial.print("Gyroscope: ");
-  Serial.print("X = "); Serial.print(GyX);
-  Serial.print(" | Y = "); Serial.print(GyY);
-  Serial.print(" | Z = "); Serial.println(GyZ);
-  Serial.println(" ");
-  */
-
+  //Serial.print("Gyroscope: ");
+  //Serial.print("X = "); Serial.print(GyX);
+  //Serial.print(" | Y = "); Serial.print(GyY);
+  //Serial.print(" | Z = "); Serial.println(GyZ);
+  //Serial.println(" ");
+  
   Serial.println("Last X");
   Serial.println(LastX);
   int Difference = LastX-AcX;
-  pos = random(180);
-  if (Difference > 2000) {                                
-        servo.write(pos);           
+  int pos = 180;
+  if (Difference > 2000) {                               
+        servo.write(90);           
         delay(2000);    
   }
   Serial.println("Difference");
